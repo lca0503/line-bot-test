@@ -12,11 +12,14 @@ from linebot.models import (
 
 from flask import render_template
 
+from googletrans import Translator
+
 app = Flask(__name__)
+
 
 line_bot_api = LineBotApi('JNeCDV6nXXEG1jsNvgLCRdYieAPOdfSIUZCMikwghPUU8xkGJErjjQrAtf9ZcBS0C7kC+NgvogdHLcg0FGvL/uKXSydk3agYbCKr8UJZ/Ug+CU0x/0fSmXGc1XjJSYYIbBxtR44Imjhyfo6XejrNpQdB04t89/1O/w1cDnyilFU=')
 handler = WebhookHandler('b5794abe4250b5c733950248c9aa7c31')
-
+translator = Translator()
 
 @app.route("/callback", methods=['POST'])
 def callback():
@@ -38,7 +41,13 @@ def callback():
 
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
-    text = "hi" + event.message.text
+    detect_language = translator.detect(event.message.text).lang
+    if detect_language == 'zh-tw':
+        text = translator.translate(event.message.text, dest='ja').text
+    elif detect_language == 'ja':
+        text = translator.translate(event.message.text, dest='zh-tw').text
+    else:
+        text = event.message.text
     line_bot_api.reply_message(
         event.reply_token,
         TextSendMessage(text=text)
