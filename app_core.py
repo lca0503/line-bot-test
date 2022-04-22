@@ -42,7 +42,7 @@ def callback():
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
     detect_language = translator.detect(event.message.text).lang
-    if detect_language == 'zh-tw':
+    if 'zh' in detect_language:
         text = translator.translate(event.message.text, dest='ja').text
     elif detect_language == 'ja':
         text = translator.translate(event.message.text, dest='zh-tw').text
