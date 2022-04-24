@@ -50,6 +50,7 @@ def handle_message(event):
     message_text_list = event.message.text.lower().split(' ')
     reply_text = ""
     find_token = False
+    language = None
     
     for message_text in message_text_list:
         if message_text in QA_dict:
@@ -61,11 +62,11 @@ def handle_message(event):
 
     if not find_token:
         reply_text = "Sorry, there is no answer to " + "\"" + event.message.text + "\""
-    '''
+    
     if language is not None:
         translator = Translator()
         reply_text = translator.translate(reply_text, dest=language)
-    '''
+    
     line_bot_api.reply_message(
         event.reply_token,
         TextSendMessage(text=reply_text)
