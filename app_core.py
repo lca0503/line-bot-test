@@ -12,14 +12,16 @@ from linebot.models import (
 
 from flask import render_template
 
-from googletrans import Translator
+from utils import get_qa_dict
+import config
+
 
 app = Flask(__name__)
 
+line_bot_api = LineBotApi(config.CHANNEL_ACCESS_TOKEN)
+handler = WebhookHandler(config.CHANNEL_SECRET)
+QA_dict = get_qa_dict(config.CONTEXT_PATH)
 
-line_bot_api = LineBotApi('JNeCDV6nXXEG1jsNvgLCRdYieAPOdfSIUZCMikwghPUU8xkGJErjjQrAtf9ZcBS0C7kC+NgvogdHLcg0FGvL/uKXSydk3agYbCKr8UJZ/Ug+CU0x/0fSmXGc1XjJSYYIbBxtR44Imjhyfo6XejrNpQdB04t89/1O/w1cDnyilFU=')
-handler = WebhookHandler('b5794abe4250b5c733950248c9aa7c31')
-translator = Translator()
 
 @app.route("/callback", methods=['POST'])
 def callback():
@@ -41,17 +43,21 @@ def callback():
 
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
-    detect_language = translator.detect(event.message.text).lang
-    if 'zh' in detect_language:
-        text = translator.translate(event.message.text, dest='ja').text
-    elif detect_language == 'ja':
-        text = translator.translate(event.message.text, dest='zh-tw').text
-    else:
-        text = event.message.text
+    message_text_list = event.message.text.upper().split(' ')
+    reply_text = ""
+    find_token = False
+    for message_text in message_text_list:
+        if message_text in QA_dict:
+            for answer in QA_dict[message_text]:
+                reply_text = reply_text + answer + '\n'
+                find_token = True
+    if not find_token:
+        reply_text = "Sorry, there is no answer to " + "\"" + event.message.text + "\""
     line_bot_api.reply_message(
         event.reply_token,
-        TextSendMessage(text=text)
+        TextSendMessage(text=reply_text)
     )
-    
+        
 if __name__ == "__main__":
+    test()
     app.run()
