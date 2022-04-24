@@ -2,4 +2,4 @@ Flask
 gunicorn
 line-bot-sdk
 googletrans==4.0.0rc1
-json
+jsons
