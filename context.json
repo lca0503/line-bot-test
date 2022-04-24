@@ -1,42 +1,58 @@
 [
     {
-	"Question_tokens": ["PROMOTION", "INFORMATION", "PERSONAL INFORMATION"],
+	"Question_tokens": ["name"],
+	"Answers": ["李晨安 Chen An, Li"]
+    },
+    {
+	"Question_tokens": ["github"],
+	"Answers": ["https://github.com/lca0503"]
+    },
+    {
+	"Question_tokens": ["email", "mail"],
+	"Answers": ["b08902123@csie.ntu.edu.tw"]
+    },
+    {
+	"Question_tokens": ["phone"],
+	"Answers": ["(+886) 988894515"]
+    },
+    {
+	"Question_tokens": ["promotion", "information"],
 	"Answers": ["My name is Chen An Li. I am a junior in the department of computer science at National Taiwan University. I have attended some projects with classmates and friends, such as CSIE camp Challenge and the NeurIPS HEAR challenge. I collaborate with others well in these experiences. After studying some concepts about computer science, I found that I am interested in Natural Language Processing, especially speech. I worked as a teaching assistant in two Machine learning classes, and I learned how to teach others and communicate with others well. I am also a research student of two labs, one is related to data analysis and another is about speech. After attending Line Developers Meetup #16 and listening to those team introductions, I am interested in the Data Dev team, which meets the research topic I am working on. I think Line is full of vitality, and I hope I can participate in the 2022 TECH FRESH - Summer Class."]
     },
     {
-	"Question_tokens": ["EDUCATION"],
+	"Question_tokens": ["education"],
 	"Answers": ["Bachelor: National Taiwan University, Department of Computer Science & Information Engineering", "Senior High School: Taipei Municipal Jianguo High School"]
     },
     {
-	"Question_tokens": ["RELEVANT COURSES", "COURSES"],
+	"Question_tokens": ["courses"],
 	"Answers": ["Introduction to Digital Speech Processing (A+)", "Machine Learning (A+)", "Machine Learning Foundations (A)", "Machine Learning Techniques (A)", "Deep Learning for Human Language Processing (in progress)", "Computer Vision (in progress)"]
     },
     {
-	"Question_tokens": ["RESEARCH", "WORK EXPERIENCE", "EXPERIENCE", "WORK"],
+	"Question_tokens": ["research", "experience", "work"],
 	"Answers": ["Research Student (Machine Discovery and Social Network Mining Lab, NTU CSIE)", "Research Student (Speech Processing and Machine Learning lab, NTUEE)", "Teaching Assistant (Machine Learning, NTU CSIE)", "Teaching Assistant (Machine Learning, NTU EE)"]
     },
     {
-	"Question_tokens": ["SKILLS"],
+	"Question_tokens": ["skills"],
 	"Answers": ["C", "C++", "Python", "Latex", "Pytorch", "Linux", "Natural Language Processing", "Machine Learning", " Deep Learning"]
     },
     {
-	"Question_tokens": ["ACHIEVEMENTS"],
+	"Question_tokens": ["achievements"],
 	"Answers": ["TOEIC (08/2020)"]
     },
     {
-	"Question_tokens": ["PROJECTS"],
+	"Question_tokens": ["projects"],
 	"Answers": ["Collaborator of Challenge2020, NTU CSIE Camp", "Collaborator of NTU-GURA package", "Collaborator of \"The Ability of Self-Supervised Speech Models for Audio Representations\""]
     },
     {
-	"Question_tokens": ["AWARDS"],
+	"Question_tokens": ["awards"],
 	"Answers": ["NeurIPS 2021 HEAR Challenge one of the best & lightning talk in NeurIPS HEAR session"]
     },
     {
-	"Question_tokens": ["LANGUAGES"],
+	"Question_tokens": ["languages"],
 	"Answers": ["Mandarin (Native or Bilingual Proficiency)", "English (Professional Working Proficiency)", "Japanese (Elementary Proficiency)"]
     },
     {
-	"Question_tokens": ["INTERESTS"],
+	"Question_tokens": ["interests"],
 	"Answers": ["Badminton", "Cycling"]
     }    
 ]
