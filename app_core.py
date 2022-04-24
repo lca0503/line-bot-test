@@ -61,11 +61,11 @@ def handle_message(event):
 
     if not find_token:
         reply_text = "Sorry, there is no answer to " + "\"" + event.message.text + "\""
-
+    '''
     if language is not None:
         translator = Translator()
         reply_text = translator.translate(reply_text, dest=language)
-
+    '''
     line_bot_api.reply_message(
         event.reply_token,
         TextSendMessage(text=reply_text)
